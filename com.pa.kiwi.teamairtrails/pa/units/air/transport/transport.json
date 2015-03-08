@@ -141,7 +141,7 @@
             ]
         },
 	{
-        "type": "idle",
+        "type": "moving",
         "filename": "/pa/effects/specs/rainbow_trail.pfx",
         "bone": "bone_root",
         "offset": [0, 0, 0.0],
