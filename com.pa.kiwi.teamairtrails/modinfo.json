@@ -3,8 +3,8 @@
   "context": "client",
   "identifier": "com.pa.kiwi.teamairtrails",
   "display_name": "Air Team Colored Trails",
-  "build": "80187",
-  "date": "2015/04/07",
+  "build": "Current",
+  "date": "2015/09/25",
   "description": "Adds a super awesome team colored trail to air units and avengers.",
   "category": [
         "in-game",
@@ -12,7 +12,7 @@
 		"effects"
     ],
   "author": "KillerKiwiJuice",
-  "version": "4.7.3",
+  "version": "4.8",
   "signature": "not yet implemented",
   "priority": 100,
   "forum": "https://forums.uberent.com/threads/rel-air-trails.67257/",
