@@ -4,7 +4,7 @@
     "description": "!LOC(units:advanced_fabricator_wired_to_build_structures.message):Advanced fabricator- Wired to build structures.",
     "max_health": 100,
     "build_metal_cost": 2100,
-    "buildable_types": "Land & Structure & Advanced - Factory | Factory & Advanced & Air | FabAdvBuild | FabBuild",
+    "buildable_types": "Land & Structure & Advanced - Factory | Factory & Advanced & Air | FabAdvBuild | FabBuild | Titan & Air",
     "attachable": {
         "offsets": {
             "root": [
