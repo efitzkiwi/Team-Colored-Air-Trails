@@ -1,7 +1,7 @@
 {
     "base_spec": "/pa/units/air/base_flyer/base_flyer.json",
-    "display_name": "!LOC(units:firefly.message):Firefly",
-    "description": "!LOC(units:scout_weak_fast_speed.message):Scout- Weak, fast speed.",
+    "display_name": "Firefly",
+    "description": "Scout- Weak, fast speed.",
     "max_health": 20,
     "build_metal_cost": 60,
     "unit_types": [

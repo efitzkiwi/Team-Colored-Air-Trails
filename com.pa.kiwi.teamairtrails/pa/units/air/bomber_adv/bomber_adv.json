@@ -1,7 +1,7 @@
 {
     "base_spec": "/pa/units/air/base_flyer/base_flyer.json",
-    "display_name": "!LOC(units:hornet.message):Hornet",
-    "description": "!LOC(units:bomber_equipped_with_advanced_anti_land_and_anti_naval_tactical_missiles.message):Bomber- Equipped with advanced anti-land and anti-naval tactical missiles.",
+    "display_name": "Hornet",
+    "description": "Bomber- Equipped with advanced anti-land and anti-naval tactical missiles.",
     "max_health": 200,
     "build_metal_cost": 1200,
     "unit_types": [
