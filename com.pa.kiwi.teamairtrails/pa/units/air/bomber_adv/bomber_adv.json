@@ -1,10 +1,11 @@
 {
     "base_spec": "/pa/units/air/base_flyer/base_flyer.json",
     "display_name": "Hornet",
-    "description": "Bomber- Equipped with advanced anti-land and anti-naval tactical missiles.",
-    "max_health": 200,
-    "build_metal_cost": 1200,
+    "description": "!LOC:Tactical Bomber - Long range. High damage tactical missiles. Attacks land and sea targets.",
+    "max_health": 500,
+    "build_metal_cost": 3200,
     "unit_types": [
+        "UNITTYPE_Custom58",
         "UNITTYPE_Bomber",
         "UNITTYPE_Mobile",
         "UNITTYPE_Offense",
@@ -14,20 +15,21 @@
         "UNITTYPE_FactoryBuild"
     ],
     "guard_layer": "WL_AnySurface",
+    "attack_range_frac": 1.05,
     "navigation": {
         "type": "air",
-        "acceleration": 30,
-        "brake": 30,
+        "acceleration": 40,
+        "brake": 40,
         "move_speed": 30,
         "turn_speed": 135,
         "dodge_radius": 0,
-        "dodge_multiplier": 0,
-        "aggressive_distance": 180,
-        "aggressive_height": 100,
+        "dodge_multiplier": 0.0,
+        "aggressive_distance": 250.0,
+        "aggressive_height": 100.0,
         "aggressive_behavior": "circle",
-        "circle_min_time": 2,
-        "circle_max_time": 4,
-        "hover_time": -1,
+        "circle_min_time": 2.0,
+        "circle_max_time": 4.0,
+        "hover_time": -1.0,
         "bank_factor": 1,
         "wobble_factor": 0.05,
         "wobble_speed": 0.1
@@ -35,16 +37,21 @@
     "physics": {
         "radius": 9,
         "gravity_scalar": 1,
-        "push_class": 2,
         "push_sideways": false,
         "allow_pushing": false,
-        "air_friction": 1
+        "air_friction": 1.0
     },
     "recon": {
         "observer": {
             "items": [
                 {
                     "layer": "surface_and_air",
+                    "channel": "sight",
+                    "shape": "capsule",
+                    "radius": 200
+                },
+                {
+                    "layer": "underwater",
                     "channel": "sight",
                     "shape": "capsule",
                     "radius": 200
@@ -72,7 +79,8 @@
         },
         "died": {
             "audio_cue": "/SE/Death/Air",
-            "effect_scale": 1
+            "effect_spec": "/pa/units/air/base_flyer/base_flyer_death_t2.pfx",
+            "effect_scale": 1.0
         }
     },
     "fx_offsets": [
@@ -85,26 +93,31 @@
                 0
             ]
         },
-	{
-        "type": "moving",
-        "filename": "/pa/effects/specs/rainbow_trail.pfx",
-        "bone": "bone_root",
-        "offset": [0, 0, 0.0],
-        "orientation": [0, 0, 0]
-    }
+        {
+            "type": "moving_forward",
+            "filename": "/pa/effects/specs/rainbow_trail.pfx",
+            "offset": [
+                0,
+                0,
+                0
+            ]
+        }
     ],
     "audio": {
         "loops": {
             "move": {
                 "cue": "/SE/Movement/air/air_bomber_T2_loop",
                 "flag": "vel_changed",
-                "should_start_func": "is_moving",
+                "should_start_func": "is_moving_laterally",
                 "should_stop_func": "is_not_moving"
             }
         },
         "selection_response": {
             "cue": "/SE/Selection/air/bomber_T2"
         }
+    },
+    "selection_icon": {
+        "diameter": 32.0
     },
     "TEMP_texelinfo": 11.3221,
     "mesh_bounds": [

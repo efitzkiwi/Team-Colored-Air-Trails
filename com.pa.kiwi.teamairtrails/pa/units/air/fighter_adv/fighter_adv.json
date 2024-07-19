@@ -1,18 +1,20 @@
 {
     "base_spec": "/pa/units/air/base_flyer/base_flyer.json",
     "display_name": "Phoenix",
-    "description": "Interplanetary Fighter- Stronger fighter, can move between planets.",
-    "build_metal_cost": 720,
-    "max_health": 300,
-    "system_velocity_multiplier": 15,
-    "gravwell_velocity_multiplier": 6,
+    "description": "!LOC:Advanced Interplanetary Fighter - Stronger fighter. Can move between planets. Can only attack air targets.",
+    "build_metal_cost": 820,
+    "max_health": 240,
+    "system_velocity_multiplier": 30.0,
+    "gravwell_velocity_multiplier": 10.0,
     "unit_types": [
+        "UNITTYPE_Custom58",
         "UNITTYPE_Fighter",
         "UNITTYPE_Air",
         "UNITTYPE_Mobile",
         "UNITTYPE_Offense",
         "UNITTYPE_Advanced",
-        "UNITTYPE_FactoryBuild"
+        "UNITTYPE_FactoryBuild",
+        "UNITTYPE_Interplanetary"
     ],
     "guard_layer": "WL_Air",
     "navigation": {
@@ -22,14 +24,13 @@
         "brake": 80,
         "move_speed": 80,
         "turn_speed": 270,
-        "aggressive_distance": 50,
+        "aggressive_distance": 50.0,
         "bank_factor": 10,
         "vertical_speed": 50
     },
     "physics": {
         "radius": 6,
-        "gravity_scalar": 1,
-        "push_class": 2
+        "gravity_scalar": 1
     },
     "recon": {
         "observer": {
@@ -76,7 +77,8 @@
         },
         "died": {
             "audio_cue": "/SE/Death/Air",
-            "effect_spec": "/pa/units/air/missile_nuke/missile_nuke_implosion.pfx"
+            "effect_spec": "/pa/units/air/base_flyer/base_flyer_death_t2.pfx",
+            "effect_scale": 0.85
         }
     },
     "fx_offsets": [
@@ -89,26 +91,32 @@
                 0.836
             ]
         },
-		{
-			"type": "moving",
-			"filename": "/pa/effects/specs/rainbow_trail.pfx",
-			"bone": "bone_root",
-			"offset": [0, 0, 0.0],
-			"orientation": [0, 0, 0]
-		}
+        {
+            "type": "moving_forward",
+            "filename": "/pa/effects/specs/rainbow_trail.pfx",
+            "offset": [
+                0,
+                4.35,
+                0.836
+            ]
+        }
     ],
     "audio": {
         "loops": {
             "move": {
                 "cue": "/SE/Movement/air/air_fighter_loop_advanced",
                 "flag": "vel_changed",
-                "should_start_func": "is_moving",
+                "should_start_func": "is_moving_laterally",
                 "should_stop_func": "is_not_moving"
             }
         },
         "selection_response": {
             "cue": "/SE/Selection/air/fighter"
         }
+    },
+    "selection_icon": {
+        "diameter": 20.0,
+        "vertical_offset": -2.0
     },
     "TEMP_texelinfo": 7.96209,
     "mesh_bounds": [

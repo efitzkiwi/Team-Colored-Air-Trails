@@ -1,13 +1,15 @@
 {
     "base_spec": "/pa/units/air/base_flyer/base_flyer.json",
     "display_name": "Firefly",
-    "description": "Scout- Weak, fast speed.",
+    "description": "!LOC:Scout - Fast. Can see far away. Does not attack.",
     "max_health": 20,
     "build_metal_cost": 60,
     "unit_types": [
+        "UNITTYPE_Custom58",
         "UNITTYPE_Scout",
         "UNITTYPE_Mobile",
         "UNITTYPE_Air",
+        "UNITTYPE_Offense",
         "UNITTYPE_Basic",
         "UNITTYPE_FactoryBuild"
     ],
@@ -29,23 +31,19 @@
     },
     "physics": {
         "radius": 6,
-        "gravity_scalar": 1,
-        "push_class": 2
+        "gravity_scalar": 1
     },
-  "fx_offsets": [
-	{
-        "type": "moving",
-        "filename": "/pa/effects/specs/rainbow_trail.pfx",
-        "bone": "bone_root",
-        "offset": [0, 0, 0.0],
-        "orientation": [0, 0, 0]
-    }
-  ],
     "recon": {
         "observer": {
             "items": [
                 {
                     "layer": "surface_and_air",
+                    "channel": "sight",
+                    "shape": "capsule",
+                    "radius": 250
+                },
+                {
+                    "layer": "underwater",
                     "channel": "sight",
                     "shape": "capsule",
                     "radius": 250
@@ -66,8 +64,8 @@
         },
         "died": {
             "audio_cue": "/SE/Death/Air",
-            "effect_spec": "/pa/units/air/missile_nuke/missile_nuke_implosion.pfx",
-            "effect_scale": 0.25
+            "effect_spec": "/pa/units/air/base_flyer/base_flyer_death.pfx",
+            "effect_scale": 0.5
         }
     },
     "audio": {
@@ -75,7 +73,7 @@
             "move": {
                 "cue": "/SE/Movement/air/air_scout_loop",
                 "flag": "vel_changed",
-                "should_start_func": "is_moving",
+                "should_start_func": "is_moving_laterally",
                 "should_stop_func": "is_not_moving"
             }
         },
@@ -83,10 +81,30 @@
             "cue": "/SE/Selection/air/air"
         }
     },
+    "selection_icon": {
+        "diameter": 17
+    },
     "TEMP_texelinfo": 5.39039,
     "mesh_bounds": [
         11.5,
         8,
         2
+    ],
+    "fx_offsets": [
+        {
+            "type": "idle",
+            "bone": "bone_root",
+            "filename": "/pa/effects/specs/rainbow_trail.pfx",
+            "offset": [
+                0,
+                0,
+                0
+            ],
+            "orientation": [
+                0,
+                0,
+                0
+            ]
+        }
     ]
 }
